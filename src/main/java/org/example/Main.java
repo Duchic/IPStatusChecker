@@ -18,10 +18,14 @@ public class Main {
             String filePath = "ip.txt";
             File file = new File(filePath);
             Scanner scanner = new Scanner(file);
+            String [] input = scanner.nextLine().split(";");
+            String ipAddress = input[0];
+            String alias = input[1];
 
             while (scanner.hasNextLine()){
-                String ipAddress = scanner.nextLine();
+                ipAddress = scanner.nextLine();
                 boolean isReachable = ping(ipAddress);
+                //TODO - co udelat kdyz je online/offline
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
