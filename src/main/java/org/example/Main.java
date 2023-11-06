@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Scanner;
 
-public class Main {
+public class Main { //TODO pushover api
     public static void main(String[] args) {
-        final String APP_TOKEN = args[0];
-        final String USER_TOKEN = args[1];
+        final String APP_TOKEN = args[0]; //for pusover api
+        final String USER_TOKEN = args[1]; //for pushover api
         readIPFromFile();
     }
 
@@ -25,7 +25,11 @@ public class Main {
             while (scanner.hasNextLine()){
                 ipAddress = scanner.nextLine();
                 boolean isReachable = ping(ipAddress);
-                //TODO - co udelat kdyz je online/offline
+                if (isReachable){
+                    //is online
+                } else {
+                    //is offline
+                }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
